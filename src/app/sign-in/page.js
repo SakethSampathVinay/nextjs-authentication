@@ -1,16 +1,15 @@
 "use client";
 
-import CommonFormElement from "@/components/ui/form-element/page";
+import { Label } from "@/components/ui/label";
 import { initialLoginFormData, userLoginFormControls } from "../utils";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
-import { loginUserAction } from "@/actions";
-import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
+import { loginUserAction } from "@/actions";
+import { useRouter } from "next/navigation";
+import CommonFormElement from "@/components/ui/form-element/page";
 
 function SignIn() {
   const [signInFormData, setSignInFormData] = useState(initialLoginFormData);
-
   const router = useRouter();
 
   async function handleSignIn() {
@@ -20,7 +19,7 @@ function SignIn() {
   }
 
   return (
-    <>
+    <div>
       <h1>Login</h1>
       <form action={handleSignIn}>
         {userLoginFormControls.map((controlItem) => (
@@ -40,7 +39,7 @@ function SignIn() {
         ))}
         <Button type="submit">Sign In</Button>
       </form>
-    </>
+    </div>
   );
 }
 
